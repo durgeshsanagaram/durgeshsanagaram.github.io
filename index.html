@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Durgesh Sanagaram — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-primary:    #0F172A;
+      --bg-secondary:  #1E293B;
+      --bg-tab-active: #3B82F6;
+      --bg-tab-hover:  #334155;
+      --border:        #334155;
+      --accent:        #3B82F6;
+      --accent-light:  #60A5FA;
+      --bullet:        #3B82F6;
+      --text-primary:  #F8FAFC;
+      --text-secondary:#94A3B8;
+      --text-muted:    #64748B;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px 48px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    header h1 { font-size: 22px; font-weight: 700; }
+    header p  { font-size: 13px; color: var(--text-secondary); max-width: 680px; text-align: right; line-height: 1.6; }
+
+    /* ── Tab bar ── */
+    nav {
+      display: flex;
+      gap: 2px;
+      padding: 0 48px;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    nav::-webkit-scrollbar { display: none; }
+    nav button {
+      padding: 13px 18px;
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    nav button:hover  { color: var(--text-primary); background: var(--bg-tab-hover); }
+    nav button.active { color: #fff; border-bottom-color: var(--accent); background: transparent; }
+
+    /* ── Content ── */
+    main { padding: 32px 48px 48px; }
+
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    .panel h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+
+    .panel ul { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+    .panel ul li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      padding-left: 16px;
+      position: relative;
+    }
+    .panel ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--bullet);
+    }
+
+    /* Experience panel — company entries get a card treatment */
+    .exp-entry {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 10px;
+    }
+    .exp-entry h3 { font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+    .exp-entry p  { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+
+    .highlight-list { margin-top: 20px; }
+    .highlight-list li { font-size: 13px; }
+
+    /* Contact grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 12px;
+    }
+    .contact-item {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .contact-item a { color: var(--accent-light); text-decoration: none; }
+    .contact-item a:hover { text-decoration: underline; }
+
+    /* Skills grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+    .skill-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+    }
+    .skill-card h3 { font-size: 12px; font-weight: 600; color: var(--accent-light); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .skill-card p  { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+
+    /* Metrics row */
+    .metrics { display: flex; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
+    .metric {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 24px;
+      text-align: center;
+      flex: 1;
+      min-width: 120px;
+    }
+    .metric .val { font-size: 22px; font-weight: 700; color: var(--accent-light); }
+    .metric .lbl { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Durgesh Sanagaram</h1>
+  <p>Engineering Leader | Building Teams | Build with Claude | Embedded (GPU and CPU) | Web, Mobile and Agentic apps | Video, Ads and Data | Full Stack</p>
+</header>
+
+<nav id="tabs">
+  <button class="active" data-tab="about">About</button>
+  <button data-tab="experience">Experience</button>
+  <button data-tab="skills">Skills</button>
+  <button data-tab="projects">Projects</button>
+  <button data-tab="architecture">Architecture</button>
+  <button data-tab="leadership">Leadership</button>
+  <button data-tab="publications">Publications</button>
+  <button data-tab="opensource">Open Source</button>
+  <button data-tab="mentoring">Mentoring</button>
+  <button data-tab="contact">Contact</button>
+</nav>
+
+<main>
+
+  <!-- ABOUT -->
+  <div class="panel active" id="about">
+    <h2>About Me</h2>
+    <ul>
+      <li>Experienced software engineering and technology leader with a proven track record of building and scaling high-performing engineering teams</li>
+      <li>Most recently focused on AI readiness projects and Build with Claude initiatives for AI-assisted customer-facing integrations and internal codebases</li>
+      <li>Designed and delivered end-to-end user journey detection and analytics across Agentic AI, eCommerce, video, and ad-driven applications</li>
+      <li>Enabling deeper context, observability, and actionable insights at internet scale</li>
+      <li>Prior experience architecting modern technology stacks and deploying GPU/hardware-accelerated systems for advanced video processing in consumer electronics</li>
+      <li>Highly skilled in leading globally distributed teams and partnering cross-functionally with product, data, and business stakeholders</li>
+      <li>Driving successful delivery of complex B2B and B2C media and analytics platforms in fast-paced environments</li>
+      <li>Hands-on experience building front-end applications using Java, JavaScript, React/React Native, C/C++, Android, and Python</li>
+      <li>Adept at scaling engineering organizations across Agentic AI, data analytics, video and ad technologies, and CPU/GPU-intensive systems</li>
+      <li>Let's connect if you're interested in exploring Agentic AI technologies, building intelligent AI agents, and scaling context-aware backend infrastructure</li>
+    </ul>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="panel" id="experience">
+    <h2>Experience</h2>
+    <div class="exp-entry">
+      <h3>Conviva — Manager, Forward Deployed Integration Engineering &nbsp;·&nbsp; 2019–Present</h3>
+      <p>San Mateo, CA &nbsp;·&nbsp; Built and managed a global team of staff/senior engineers; scaled from 1 to 8 product lines; 7B devices, 1.8 trillion events/day</p>
+    </div>
+    <div class="exp-entry">
+      <h3>Intel Corporation — Software Engineering Manager &nbsp;·&nbsp; 2017–2019</h3>
+      <p>Santa Clara, CA &nbsp;·&nbsp; As Samsung/Harman employee partnered with Intel Sports; delivered VR streaming for 2018 Winter Olympics across 43 apps on Gear VR, Daydream, Android, and iOS</p>
+    </div>
+    <div class="exp-entry">
+      <h3>Dalet Flex — Sr. Product Manager &amp; Sr. Engineering Manager &nbsp;·&nbsp; 2015–2017</h3>
+      <p>Santa Clara, CA &nbsp;·&nbsp; Owned 4 cloud microservices (content mgmt, encoding, DRM, playback config); 250 requirements; 40-page architecture doc; Copa America global broadcasts</p>
+    </div>
+    <div class="exp-entry">
+      <h3>DISH Network — Principal Software Engineer &nbsp;·&nbsp; 2009–2015</h3>
+      <p>Foster City, CA &nbsp;·&nbsp; Led 6 MVPs for cloud-to-mobile video streaming used by 2.5M subscribers; built ad insertion analytics showing $3M additional revenue/quarter</p>
+    </div>
+    <div class="exp-entry">
+      <h3>Toshiba America Electronic Components — Staff Software Engineer &nbsp;·&nbsp; 2004–2009</h3>
+      <p>San Jose, CA &nbsp;·&nbsp; Firmware, middleware &amp; A/V interface software for Smart TVs and TiVo DVRs; GPU-distributed pipeline reduced CPU load 80%, UX improved 25%</p>
+    </div>
+    <div class="exp-entry">
+      <h3>Omni Spectrum Holdings — Engineering Manager &nbsp;·&nbsp; 2001–2004</h3>
+      <p>Milpitas, CA &nbsp;·&nbsp; Built engineering team; developed software converting Cable/Satellite feeds to TCP/IP packets for enterprise broadband gateway product</p>
+    </div>
+    <div class="exp-entry">
+      <h3>Cisco — Senior System Software Engineer &nbsp;·&nbsp; 2000–2001</h3>
+      <p>San Jose, CA &nbsp;·&nbsp; End-to-end call processing architecture for Enterprise Wireless Access Point; SS7 protocol for inter-carrier hard hand-off</p>
+    </div>
+    <ul class="highlight-list">
+      <li>High-profile Conviva client integrations: SlingTV, Paramount/CBS, Televisa Univision, NFL, Disney, Warner Bros Discovery, CNN, MLL, Tnets, Philo</li>
+      <li>Personally trained ~200 developers globally; provided technical solutions for ~2,000 integration questions across 8 product areas</li>
+      <li>Developed 6 technical playbooks and 50 application notes reducing customer onboarding time by 40%; improved data quality 25% across 8 product areas</li>
+    </ul>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="panel" id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card"><h3>Top Skills</h3><p>Technology Product Development, Node.js, MongoDB</p></div>
+      <div class="skill-card"><h3>Languages</h3><p>C/C++, JavaScript, Java, Python, Android, React, React Native</p></div>
+      <div class="skill-card"><h3>AI &amp; Agentic</h3><p>Build with Claude, Agentic AI frameworks, AI-assisted customer integrations</p></div>
+      <div class="skill-card"><h3>Video Technology</h3><p>HLS streaming, DRM, Live/VOD/AVOD/SVOD/Ads, video transcoding</p></div>
+      <div class="skill-card"><h3>Observability</h3><p>Client-side telemetry, time-state compute, end-to-end user journey analytics</p></div>
+      <div class="skill-card"><h3>Embedded Systems</h3><p>GPU/CPU-accelerated video processing, firmware, middleware, Linux, cross-compilers</p></div>
+      <div class="skill-card"><h3>Cloud &amp; Infrastructure</h3><p>AWS video transcoding, HLS delivery pipelines, cloud content management</p></div>
+      <div class="skill-card"><h3>Platforms</h3><p>Android, iOS, Gear VR, Daydream, Smart TV, TiVo DVR, consumer electronics</p></div>
+      <div class="skill-card"><h3>Integration</h3><p>REST APIs, sequence diagram architecture, SDK integration (C/C++, JS, Java, Android, Python)</p></div>
+      <div class="skill-card"><h3>Certifications</h3><p>Build with Claude Code &nbsp;·&nbsp; NodeJS/Express/MongoDB Full Stack &nbsp;·&nbsp; Front End Web &amp; Mobile Dev Honor</p></div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="panel" id="projects">
+    <h2>Key Projects</h2>
+    <div class="metrics">
+      <div class="metric"><div class="val">7B</div><div class="lbl">Devices (Conviva)</div></div>
+      <div class="metric"><div class="val">1.8T</div><div class="lbl">Events/day</div></div>
+      <div class="metric"><div class="val">2.5M</div><div class="lbl">DISH Subscribers</div></div>
+      <div class="metric"><div class="val">1.25M</div><div class="lbl">Copa America Subscribers</div></div>
+      <div class="metric"><div class="val">$3M</div><div class="lbl">Ad Revenue/Quarter</div></div>
+      <div class="metric"><div class="val">40%</div><div class="lbl">Onboarding Time Saved</div></div>
+    </div>
+    <ul>
+      <li>Conviva integration engineering: real-time observability at internet scale — 7B devices, 1.8 trillion events/day</li>
+      <li>Scaled Conviva integration team from 1 to 8 product lines simultaneously under direct leadership</li>
+      <li>Reduced customer onboarding time 40% by developing 6 technical playbooks and 50 application notes across 8 product areas</li>
+      <li>Improved data quality 25% across 8 Conviva product areas by introducing post-sales requirements capture process</li>
+      <li>2018 Winter Olympics VR streaming: 43 apps on Gear VR, Daydream, Android, iOS; AWS camera-to-HLS transcoding pipeline with 360° metadata insertion</li>
+      <li>Copa America live streaming via cross-device REST API architecture; 1.25M subscribers in Australia &amp; Mexico — still in production</li>
+      <li>DISH Network: 6 video streaming MVPs serving 2.5M mobile subscribers; built m3u8-to-mp4 converter for offline playback and end-to-end video seek/scrubbing</li>
+      <li>DISH ad analytics: demonstrated 17% faster ad start time and 35% higher ad consumption per user — resulting in $3M additional revenue per quarter</li>
+      <li>Toshiba Smart TV: GPU-distributed A/V pipeline across 3 GPUs + signal processor; picture-in-picture in production; CPU load reduced 80%, UX improved 25%</li>
+      <li>Cisco: end-to-end call processing architecture for Enterprise Wireless Access Point; SS7 protocol for inter-carrier hard hand-off as user travels office to highway</li>
+    </ul>
+  </div>
+
+  <!-- ARCHITECTURE -->
+  <div class="panel" id="architecture">
+    <h2>Architecture</h2>
+    <ul>
+      <li>Conviva: real-time observability at internet scale via client-side telemetry on front-end apps + time-state compute engines on the backend</li>
+      <li>End-to-end user journey detection and analytics across Agentic AI, eCommerce, video, and ad-driven applications</li>
+      <li>VR streaming pipeline: cameras → AWS transcoding → HLS format → 43 multi-platform apps (Gear VR, Daydream, Android, iOS) for 2018 Winter Olympics</li>
+      <li>Dalet Flex: 4-microservice cloud architecture — content management, encoding, entitlement/DRM, and video playback config services</li>
+      <li>Cross-device video streaming architecture: Live/SVOD/TVOD/AVOD/Ads spanning CMS, entitlement servers, DRMs, and video players; 40-page architecture doc with sequence diagrams</li>
+      <li>GPU-distributed A/V pipeline: main CPU + 3 GPUs + heavy-lift signal processor for Smart TV picture-in-picture; CPU load reduced 80% (Toshiba)</li>
+      <li>REST API cross-device architecture for Copa America global broadcasts; still in production with 1.25M subscribers in Australia &amp; Mexico</li>
+      <li>Client-side ad insertion pipeline (pre-roll &amp; mid-roll) with instrumented analytics; demonstrated $3M additional revenue/quarter (DISH Network)</li>
+      <li>Enterprise Wireless Access Point end-to-end call processing architecture; SS7 protocol ensuring inter-carrier hard hand-off from office to highway (Cisco)</li>
+      <li>Embedded pipeline: cloud EPG + recordings → mobile device display; m3u8-to-mp4 converter for offline playback; video seek/scrubbing — 2.5M subscribers (DISH)</li>
+    </ul>
+  </div>
+
+  <!-- LEADERSHIP -->
+  <div class="panel" id="leadership">
+    <h2>Leadership</h2>
+    <ul>
+      <li>Global Forward Deployed Engineering Manager at Conviva — built and managed a team of staff/senior software engineers across the globe</li>
+      <li>Established quarterly OKRs for each team member ensuring consistent delivery; rewarded top performance with salary adjustments, spot/annual bonuses, and equity</li>
+      <li>Scaled team from a single product area to 8 product lines simultaneously, significantly boosting efficiency</li>
+      <li>Introduced post-sales requirements capture process; improved data quality 25% across 8 product areas — a critical KPI for customer success</li>
+      <li>Developed 6 technical playbooks and 50 application notes across 8 product areas; reduced customer onboarding time by 40%</li>
+      <li>Collaborated with 5 product managers, 6 project managers, 8 solution architects, 8 validation engineers, and ~200 developers for seamless global integrations</li>
+      <li>Personally trained ~200 developers across the globe; provided technical solutions for ~2,000 integration questions</li>
+      <li>Fostered a culture of ownership and accountability in an ever-dynamic customer-facing integration engineering team</li>
+      <li>Previously led engineering teams at Intel Sports (2018 Winter Olympics VR), Dalet Flex (Copa America streaming), and Omni Spectrum Holdings</li>
+      <li>High-profile client integrations: SlingTV, Paramount/CBS, Televisa Univision, NFL, Disney, Warner Bros Discovery, CNN, MLL, Tnets, Philo</li>
+    </ul>
+  </div>
+
+  <!-- PUBLICATIONS -->
+  <div class="panel" id="publications">
+    <h2>Publications &amp; Certifications</h2>
+    <ul>
+      <li>Publication: National Communication Conference - India</li>
+      <li>Certification: Build with Claude Code — Anthropic</li>
+      <li>Certification: Front End Web and Mobile Development Honor</li>
+      <li>Certification: Back-End Development Full Stack — NodeJS, Express, MongoDB</li>
+      <li>6 technical playbooks covering 8 Conviva product areas for global customer integrations</li>
+      <li>50 application notes across 8 Conviva product areas; reduced customer onboarding time by 40%</li>
+      <li>40-page architecture document with end-to-end sequence diagrams for Dalet Flex video streaming platform</li>
+      <li>Technical interface specifications for CMS (Live/SVOD/TVOD/AVOD/Ads), DRMs, entitlement servers, and video players (Dalet Flex)</li>
+      <li>Training materials and technical solutions delivered to ~200 developers across the globe</li>
+      <li>~2,000 developer integration questions answered through documented technical guidance</li>
+    </ul>
+  </div>
+
+  <!-- OPEN SOURCE -->
+  <div class="panel" id="opensource">
+    <h2>Open Source</h2>
+    <ul>
+      <li>Integrated Conviva Agentic SDKs: C/C++, JavaScript, Java, Android, Python</li>
+      <li>Certified: Build with Claude Code (Anthropic)</li>
+      <li>Applied HLS open standards for VR and mobile video streaming</li>
+      <li>Built m3u8-to-mp4 converter for offline mobile video playback (DISH)</li>
+      <li>Designed cross-device REST API integrations for streaming platforms</li>
+      <li>AWS cloud video transcoding pipeline for HLS delivery</li>
+      <li>Ad insertion frameworks: pre-roll and mid-roll at DISH Network</li>
+      <li>SS7 protocol implementation for enterprise wireless at Cisco</li>
+      <li>NodeJS/Express/MongoDB Full Stack certified developer</li>
+      <li>Passionate about Agentic AI and emerging technology ecosystems</li>
+    </ul>
+  </div>
+
+  <!-- MENTORING -->
+  <div class="panel" id="mentoring">
+    <h2>Mentoring</h2>
+    <ul>
+      <li>Personally trained ~200 developers across the globe on Conviva SDK integrations</li>
+      <li>Provided technical solutions for ~2,000 developer integration questions worldwide</li>
+      <li>Developed 6 technical playbooks across 8 product areas to guide customer integrations</li>
+      <li>Created 50 application notes reducing customer onboarding time by 40%</li>
+      <li>Established quarterly OKRs for each team member ensuring consistent delivery and growth</li>
+      <li>Fostered a culture of ownership and accountability in the customer-facing integration engineering team</li>
+      <li>Rewarded top performance with salary adjustments, spot/annual bonuses, and equity</li>
+      <li>Built and grew engineering teams at Conviva, Intel Sports, Dalet Flex, and Omni Spectrum Holdings</li>
+      <li>Collaborated cross-functionally with 5 PMs, 6 PjMs, 8 SAs, 8 validation engineers, and ~200 developers</li>
+      <li>Scaled team from a single product area to 8 product lines, expanding team capacity and capability</li>
+    </ul>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="panel" id="contact">
+    <h2>Contact</h2>
+    <div class="contact-grid">
+      <div class="contact-item">📧 <strong>Email</strong><br><a href="mailto:durgeshsanagaram@gmail.com">durgeshsanagaram@gmail.com</a></div>
+      <div class="contact-item">💼 <strong>LinkedIn</strong><br><a href="https://www.linkedin.com/in/durgeshsanagaram" target="_blank">linkedin.com/in/durgeshsanagaram</a></div>
+      <div class="contact-item">📱 <strong>Phone</strong><br>(408) 569-2109</div>
+      <div class="contact-item">📍 <strong>Location</strong><br>Cupertino, California, United States</div>
+      <div class="contact-item">🌐 <strong>Languages</strong><br>English (Full Professional), Telugu (Full Professional)</div>
+      <div class="contact-item">🎓 <strong>Education</strong><br>IIT Madras MS (Research, Computer Engineering) &nbsp;·&nbsp; JNTU B.Tech &nbsp;·&nbsp; Stanford Lead Program</div>
+      <div class="contact-item">🏆 <strong>Certifications</strong><br>Build with Claude Code &nbsp;·&nbsp; NodeJS/Express/MongoDB Full Stack &nbsp;·&nbsp; Front End Web &amp; Mobile Dev Honor</div>
+      <div class="contact-item">📰 <strong>Publication</strong><br>National Communication Conference - India</div>
+      <div class="contact-item">💡 <strong>Interests</strong><br>Agentic AI technologies, intelligent AI agents, context-aware backend infrastructure</div>
+      <div class="contact-item">🏢 <strong>Current Role</strong><br>Manager, Forward Deployed Integration Engineering at Conviva (2019–Present)</div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  const tabs = document.querySelectorAll('nav button');
+  const panels = document.querySelectorAll('.panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
