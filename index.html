@@ -32,13 +32,23 @@
     /* ── Header ── */
     header {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
+      gap: 24px;
       padding: 32px 48px 24px;
       border-bottom: 1px solid var(--border);
     }
+    header .header-text { flex: 1; min-width: 0; }
     header h1 { font-size: 22px; font-weight: 700; }
-    header p  { font-size: 13px; color: var(--text-secondary); max-width: 680px; text-align: right; line-height: 1.6; }
+    header p  { font-size: 13px; color: var(--text-secondary); max-width: 680px; line-height: 1.6; margin-top: 6px; }
+    header .avatar {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+      flex-shrink: 0;
+    }
 
     /* ── Tab bar ── */
     nav {
@@ -164,8 +174,11 @@
 <body>
 
 <header>
-  <h1>Durgesh Sanagaram</h1>
-  <p>Engineering Leader | Building Teams | Build with Claude | Embedded (GPU and CPU) | Web, Mobile and Agentic apps | Video, Ads and Data | Full Stack</p>
+  <div class="header-text">
+    <h1>Durgesh Sanagaram</h1>
+    <p>Senior Engineering Manager | Distributed Systems &amp; SaaS Delivery | Team Builder &amp; Talent Developer | Technical Excellence | AI/Data Platforms</p>
+  </div>
+  <img class="avatar" src="assets/profile.jpg" alt="Durgesh Sanagaram" />
 </header>
 
 <nav id="tabs">
@@ -187,15 +200,15 @@
   <div class="panel active" id="about">
     <h2>About Me</h2>
     <ul>
-      <li>Experienced software engineering and technology leader with a proven track record of building and scaling high-performing engineering teams</li>
-      <li>Most recently focused on AI readiness projects and Build with Claude initiatives for AI-assisted customer-facing integrations and internal codebases</li>
-      <li>Designed and delivered end-to-end user journey detection and analytics across Agentic AI, eCommerce, video, and ad-driven applications</li>
-      <li>Enabling deeper context, observability, and actionable insights at internet scale</li>
-      <li>Prior experience architecting modern technology stacks and deploying GPU/hardware-accelerated systems for advanced video processing in consumer electronics</li>
-      <li>Highly skilled in leading globally distributed teams and partnering cross-functionally with product, data, and business stakeholders</li>
-      <li>Driving successful delivery of complex B2B and B2C media and analytics platforms in fast-paced environments</li>
-      <li>Hands-on experience building front-end applications using Java, JavaScript, React/React Native, C/C++, Android, and Python</li>
-      <li>Adept at scaling engineering organizations across Agentic AI, data analytics, video and ad technologies, and CPU/GPU-intensive systems</li>
+      <li>Engineering manager with 20+ years building and delivering high-volume distributed systems, SaaS platforms, and data-intensive software across cloud and embedded environments</li>
+      <li>At Conviva, scaled an engineering organization from 3 to 13 direct engineers within an extended 36-person delivery organization (QA, PMs, cross-functional leads), instituted architecture reviews and technical quality standards, and drove delivery across eight simultaneous product lines serving 700+ enterprise clients</li>
+      <li>Deep roots in distributed systems — from CPU/GPU distributed compute pipelines at Toshiba, to embedded video streaming at Sling Media, to cloud-native SDK platforms at Conviva on AWS and Google Cloud</li>
+      <li>Hires and develops strong engineers and future leaders, builds the processes that increase velocity and quality, and stays close enough to the work to raise the technical bar</li>
+      <li>Partners effectively with product, sales, and customer success to align engineering execution with business priorities</li>
+      <li>Talent Development &amp; Engineering Culture: track record of hiring and developing strong engineers and managers; scaled globally distributed teams across the U.S., APAC, and LATAM; instituted OKR-based goal setting and architecture review processes that improved delivery velocity and team ownership</li>
+      <li>Process &amp; Technical Excellence: instituted architecture reviews, automated testing frameworks, and bi-weekly delivery cadences — reduced client onboarding time 80%, optimized SDK performance 35%, and built automation frameworks used in production across all major client engagements</li>
+      <li>Go-to technical stack: Java, JavaScript, React, React Native, C/C++, Python, Shell &nbsp;|&nbsp; AWS (ECS, EKS), Google Cloud &nbsp;|&nbsp; Docker, Kubernetes</li>
+      <li>US Citizen, no visa sponsorship required</li>
       <li>Let's connect if you're interested in exploring Agentic AI technologies, building intelligent AI agents, and scaling context-aware backend infrastructure</li>
     </ul>
   </div>
@@ -204,37 +217,46 @@
   <div class="panel" id="experience">
     <h2>Experience</h2>
     <div class="exp-entry">
-      <h3>Conviva — Manager, Forward Deployed Integration Engineering &nbsp;·&nbsp; 2019–Present</h3>
-      <p>San Mateo, CA &nbsp;·&nbsp; Built and managed a global team of staff/senior engineers; scaled from 1 to 8 product lines; 7B devices, 1.8 trillion events/day</p>
+      <h3>Conviva — Manager, Forward Deployed AI Integration Engineering Team (Agents) &nbsp;·&nbsp; Apr 2025–Present</h3>
+      <p>Foster City, CA &nbsp;·&nbsp; Lead 6 principal/staff engineers within a 36-person extended delivery org. Championed internal AI adoption (Claude Code, Cursor, Gemini); architected system prompts that reduced LLM hallucinations. Delivered "AI-assisted integration workflows" across 8 Tier-1 eCommerce/media clients via JS, iOS, Android and React Native SDKs — cutting onboarding time 80%. Built Nexa, an internal AI chatbot for end-to-end user-journey simulation. Authored MCP integration playbooks and delivered training for Salesforce, Wayfair, Herbalife, Disney and Paramount. Built a Playwright-based distributed test automation framework — top Hackathon finalist, 2026.</p>
     </div>
     <div class="exp-entry">
-      <h3>Intel Corporation — Software Engineering Manager &nbsp;·&nbsp; 2017–2019</h3>
-      <p>Santa Clara, CA &nbsp;·&nbsp; As Samsung/Harman employee partnered with Intel Sports; delivered VR streaming for 2018 Winter Olympics across 43 apps on Gear VR, Daydream, Android, and iOS</p>
+      <h3>Conviva — Director, Engineering / Global Platform Delivery &nbsp;·&nbsp; Apr 2022–Mar 2025</h3>
+      <p>Foster City, CA &nbsp;·&nbsp; Scaled engineering organization from 3 to 13 direct engineers within a 36-person extended org across U.S., APAC, and LATAM. Instituted architecture reviews and technical standards across 700+ SaaS integrations. Managed a $2.5M engineering budget; owned capacity planning, hiring, and org design as team scaled 3x. Led 150 client training sessions worldwide.</p>
     </div>
     <div class="exp-entry">
-      <h3>Dalet Flex — Sr. Product Manager &amp; Sr. Engineering Manager &nbsp;·&nbsp; 2015–2017</h3>
-      <p>Santa Clara, CA &nbsp;·&nbsp; Owned 4 cloud microservices (content mgmt, encoding, DRM, playback config); 250 requirements; 40-page architecture doc; Copa America global broadcasts</p>
+      <h3>Conviva — Manager, Integration Engineering Team (NAM), Video &amp; Ad Analytics &nbsp;·&nbsp; May 2019–Mar 2021</h3>
+      <p>Foster City, CA &nbsp;·&nbsp; Oversaw a team of 13 senior engineers integrating Conviva SDKs (Java, JavaScript, React/React Native, C/C++, Roku) with client video streaming applications; delivered 8 products across 700+ streaming applications globally. Reduced SDK footprint 35%; delivered 75 real-time KPIs. Coordinated with 5 product managers and 8 project managers across engineering teams.</p>
     </div>
     <div class="exp-entry">
-      <h3>DISH Network — Principal Software Engineer &nbsp;·&nbsp; 2009–2015</h3>
-      <p>Foster City, CA &nbsp;·&nbsp; Led 6 MVPs for cloud-to-mobile video streaming used by 2.5M subscribers; built ad insertion analytics showing $3M additional revenue/quarter</p>
+      <h3>Samsung/Harman @ Intel Sports — Virtual Reality Media Manager &nbsp;·&nbsp; 2017–2019</h3>
+      <p>Santa Clara, CA &nbsp;·&nbsp; Led VR streaming engineering for global events including the 2018 Winter Olympics. Containerized Android OS environments with Docker, orchestrated with Kubernetes across 43 apps on Gear VR, Daydream, Android, iOS. Built AWS transcoding pipeline converting camera feeds to HLS; designed 360° POV metadata insertion.</p>
     </div>
     <div class="exp-entry">
-      <h3>Toshiba America Electronic Components — Staff Software Engineer &nbsp;·&nbsp; 2004–2009</h3>
-      <p>San Jose, CA &nbsp;·&nbsp; Firmware, middleware &amp; A/V interface software for Smart TVs and TiVo DVRs; GPU-distributed pipeline reduced CPU load 80%, UX improved 25%</p>
+      <h3>Brightcove/Ooyala Video Streaming — Senior Software Integration Manager &nbsp;·&nbsp; 2015–2017</h3>
+      <p>Santa Clara, CA &nbsp;·&nbsp; Designed and deployed containerized middleware (Docker, AWS ECS/EKS) for API caching and request-routing between B2B backend services and video streaming clients. Delivered cross-device streaming for Copa America and Mexican Soccer leagues across Australia and Mexico, serving 1.25M subscribers still in production.</p>
+    </div>
+    <div class="exp-entry">
+      <h3>Sling Media Innovations Lab / DISH — Principal Software Engineer &nbsp;·&nbsp; 2009–2015</h3>
+      <p>Foster City, CA &nbsp;·&nbsp; Led engineering of six production MVPs streaming video from cloud to mobile, serving ~2.5M subscribers. Built m3u8-to-mp4 converter for offline playback, video seek/scrubbing, and client-side ad insertion; server-side ad insertion analysis improved ad start time 17%, ad consumption 35%, adding $3M revenue/quarter.</p>
+    </div>
+    <div class="exp-entry">
+      <h3>Toshiba America Electronic Components — Staff Software Engineer, Smart TV/GPU Software Development Group &nbsp;·&nbsp; 2004–2009</h3>
+      <p>San Jose, CA &nbsp;·&nbsp; Led firmware, middleware, and audio-video pipeline development for Smart TVs and DVRs. Designed distributed compute architecture partitioning workloads across CPU and 3 GPUs with a signal processor for picture-in-picture — reduced CPU load 80%, improved UX 25%.</p>
     </div>
     <div class="exp-entry">
       <h3>Omni Spectrum Holdings — Engineering Manager &nbsp;·&nbsp; 2001–2004</h3>
-      <p>Milpitas, CA &nbsp;·&nbsp; Built engineering team; developed software converting Cable/Satellite feeds to TCP/IP packets for enterprise broadband gateway product</p>
+      <p>Milpitas, CA &nbsp;·&nbsp; Built engineering team; developed software converting Cable/Satellite feeds to TCP/IP packets for enterprise broadband gateway product.</p>
     </div>
     <div class="exp-entry">
       <h3>Cisco — Senior System Software Engineer &nbsp;·&nbsp; 2000–2001</h3>
-      <p>San Jose, CA &nbsp;·&nbsp; End-to-end call processing architecture for Enterprise Wireless Access Point; SS7 protocol for inter-carrier hard hand-off</p>
+      <p>San Jose, CA &nbsp;·&nbsp; End-to-end call processing architecture for Enterprise Wireless Access Point; SS7 protocol for inter-carrier hard hand-off.</p>
     </div>
     <ul class="highlight-list">
-      <li>High-profile Conviva client integrations: SlingTV, Paramount/CBS, Televisa Univision, NFL, Disney, Warner Bros Discovery, CNN, MLL, Tnets, Philo</li>
+      <li>High-profile Conviva client integrations: SlingTV, Paramount/CBS, Televisa Univision, NFL, Disney, Warner Bros Discovery, CNN, MLL, Tnets, Philo, Salesforce, Wayfair, Herbalife</li>
       <li>Personally trained ~200 developers globally; provided technical solutions for ~2,000 integration questions across 8 product areas</li>
-      <li>Developed 6 technical playbooks and 50 application notes reducing customer onboarding time by 40%; improved data quality 25% across 8 product areas</li>
+      <li>Developed 6 technical playbooks and 50 application notes reducing customer onboarding time by 40–80%; improved data quality 25% across 8 product areas</li>
+      <li>Education: IIT Madras — M.S. in Computer Engineering &nbsp;·&nbsp; JNT University — B.Tech in Engineering &nbsp;·&nbsp; LEAD Program, Stanford University (in progress) &nbsp;·&nbsp; AI/ML @ Berkeley &nbsp;·&nbsp; Bootcamp: JavaScript, React, React Native, Node.js</li>
     </ul>
   </div>
 
@@ -242,16 +264,16 @@
   <div class="panel" id="skills">
     <h2>Technical Skills</h2>
     <div class="skills-grid">
-      <div class="skill-card"><h3>Top Skills</h3><p>Technology Product Development, Node.js, MongoDB</p></div>
-      <div class="skill-card"><h3>Languages</h3><p>C/C++, JavaScript, Java, Python, Android, React, React Native</p></div>
-      <div class="skill-card"><h3>AI &amp; Agentic</h3><p>Build with Claude, Agentic AI frameworks, AI-assisted customer integrations</p></div>
+      <div class="skill-card"><h3>Go-To Stack</h3><p>Java, JavaScript, React, React Native, C/C++, Python, Shell</p></div>
+      <div class="skill-card"><h3>Cloud &amp; Infrastructure</h3><p>AWS (ECS, EKS), Google Cloud, Docker, Kubernetes</p></div>
+      <div class="skill-card"><h3>AI &amp; Agentic</h3><p>Claude Code, Cursor, Gemini, Model Context Protocol (MCP), agentic workflow migration, LLM prompt/system design, Nexa AI chatbot</p></div>
+      <div class="skill-card"><h3>Talent &amp; Engineering Culture</h3><p>Hiring &amp; developing engineers/managers, OKR-based goal setting, architecture review processes, globally distributed teams (U.S., APAC, LATAM)</p></div>
       <div class="skill-card"><h3>Video Technology</h3><p>HLS streaming, DRM, Live/VOD/AVOD/SVOD/Ads, video transcoding</p></div>
-      <div class="skill-card"><h3>Observability</h3><p>Client-side telemetry, time-state compute, end-to-end user journey analytics</p></div>
+      <div class="skill-card"><h3>Observability</h3><p>Client-side telemetry, time-state compute, end-to-end user journey analytics, 75+ real-time KPIs</p></div>
       <div class="skill-card"><h3>Embedded Systems</h3><p>GPU/CPU-accelerated video processing, firmware, middleware, Linux, cross-compilers</p></div>
-      <div class="skill-card"><h3>Cloud &amp; Infrastructure</h3><p>AWS video transcoding, HLS delivery pipelines, cloud content management</p></div>
-      <div class="skill-card"><h3>Platforms</h3><p>Android, iOS, Gear VR, Daydream, Smart TV, TiVo DVR, consumer electronics</p></div>
-      <div class="skill-card"><h3>Integration</h3><p>REST APIs, sequence diagram architecture, SDK integration (C/C++, JS, Java, Android, Python)</p></div>
-      <div class="skill-card"><h3>Certifications</h3><p>Build with Claude Code &nbsp;·&nbsp; NodeJS/Express/MongoDB Full Stack &nbsp;·&nbsp; Front End Web &amp; Mobile Dev Honor</p></div>
+      <div class="skill-card"><h3>Platforms</h3><p>Android, iOS, Gear VR, Daydream, Smart TV, TiVo DVR, Roku, consumer electronics</p></div>
+      <div class="skill-card"><h3>Testing &amp; Automation</h3><p>Playwright-based distributed test automation, synthetic traffic generation, automated testing frameworks</p></div>
+      <div class="skill-card"><h3>Integration</h3><p>REST APIs, sequence diagram architecture, SDK integration (C/C++, JS, Java, Android, React Native, Roku)</p></div>
     </div>
   </div>
 
@@ -259,24 +281,24 @@
   <div class="panel" id="projects">
     <h2>Key Projects</h2>
     <div class="metrics">
-      <div class="metric"><div class="val">7B</div><div class="lbl">Devices (Conviva)</div></div>
-      <div class="metric"><div class="val">1.8T</div><div class="lbl">Events/day</div></div>
+      <div class="metric"><div class="val">700+</div><div class="lbl">Enterprise Clients</div></div>
+      <div class="metric"><div class="val">75</div><div class="lbl">Real-time KPIs</div></div>
       <div class="metric"><div class="val">2.5M</div><div class="lbl">DISH Subscribers</div></div>
       <div class="metric"><div class="val">1.25M</div><div class="lbl">Copa America Subscribers</div></div>
       <div class="metric"><div class="val">$3M</div><div class="lbl">Ad Revenue/Quarter</div></div>
-      <div class="metric"><div class="val">40%</div><div class="lbl">Onboarding Time Saved</div></div>
+      <div class="metric"><div class="val">80%</div><div class="lbl">Onboarding Time Saved</div></div>
     </div>
     <ul>
-      <li>Conviva integration engineering: real-time observability at internet scale — 7B devices, 1.8 trillion events/day</li>
-      <li>Scaled Conviva integration team from 1 to 8 product lines simultaneously under direct leadership</li>
-      <li>Reduced customer onboarding time 40% by developing 6 technical playbooks and 50 application notes across 8 product areas</li>
-      <li>Improved data quality 25% across 8 Conviva product areas by introducing post-sales requirements capture process</li>
+      <li>AI-assisted integration workflows: scaled adoption across 8 major Tier-1 eCommerce/media clients via JS, iOS, Android and React Native SDKs; cut client onboarding time 80%</li>
+      <li>Nexa: internal AI chatbot using pre-populated prompts to map and simulate end-to-end user journeys (launch/auth → checkout → session closure)</li>
+      <li>MCP integration playbooks and specialized training delivered to Salesforce, Wayfair, Herbalife, Disney, and Paramount; evaluated MCP vs REST API architectures for AI agents</li>
+      <li>Playwright-based distributed test automation framework generating production-level synthetic traffic — top Hackathon finalist, 2026</li>
+      <li>Scaled Conviva engineering org from 3 to 13 direct engineers (36-person extended org) across 700+ SaaS integrations and 8 simultaneous product lines</li>
       <li>2018 Winter Olympics VR streaming: 43 apps on Gear VR, Daydream, Android, iOS; AWS camera-to-HLS transcoding pipeline with 360° metadata insertion</li>
-      <li>Copa America live streaming via cross-device REST API architecture; 1.25M subscribers in Australia &amp; Mexico — still in production</li>
+      <li>Copa America &amp; Mexican Soccer live streaming via cross-device REST API architecture; 1.25M subscribers in Australia &amp; Mexico — still in production</li>
       <li>DISH Network: 6 video streaming MVPs serving 2.5M mobile subscribers; built m3u8-to-mp4 converter for offline playback and end-to-end video seek/scrubbing</li>
       <li>DISH ad analytics: demonstrated 17% faster ad start time and 35% higher ad consumption per user — resulting in $3M additional revenue per quarter</li>
       <li>Toshiba Smart TV: GPU-distributed A/V pipeline across 3 GPUs + signal processor; picture-in-picture in production; CPU load reduced 80%, UX improved 25%</li>
-      <li>Cisco: end-to-end call processing architecture for Enterprise Wireless Access Point; SS7 protocol for inter-carrier hard hand-off as user travels office to highway</li>
     </ul>
   </div>
 
@@ -284,16 +306,16 @@
   <div class="panel" id="architecture">
     <h2>Architecture</h2>
     <ul>
-      <li>Conviva: real-time observability at internet scale via client-side telemetry on front-end apps + time-state compute engines on the backend</li>
+      <li>Conviva: real-time observability at internet scale via client-side telemetry on front-end apps + time-state compute engines on the backend, delivering 75+ real-time KPIs</li>
       <li>End-to-end user journey detection and analytics across Agentic AI, eCommerce, video, and ad-driven applications</li>
+      <li>Architected system prompts and markdown configurations to reduce LLM hallucinations; led migration of legacy JavaScript codebases into agentic workflows</li>
+      <li>Evaluated MCP vs REST API architectures for AI agent integrations with enterprise clients</li>
       <li>VR streaming pipeline: cameras → AWS transcoding → HLS format → 43 multi-platform apps (Gear VR, Daydream, Android, iOS) for 2018 Winter Olympics</li>
-      <li>Dalet Flex: 4-microservice cloud architecture — content management, encoding, entitlement/DRM, and video playback config services</li>
-      <li>Cross-device video streaming architecture: Live/SVOD/TVOD/AVOD/Ads spanning CMS, entitlement servers, DRMs, and video players; 40-page architecture doc with sequence diagrams</li>
+      <li>Containerized Android OS environments (Docker + Kubernetes) explored for automotive streaming use cases</li>
+      <li>Cross-device video streaming architecture: Live/SVOD/TVOD/AVOD/Ads spanning CMS, entitlement servers, DRMs, and video players via Docker/AWS ECS/EKS middleware</li>
       <li>GPU-distributed A/V pipeline: main CPU + 3 GPUs + heavy-lift signal processor for Smart TV picture-in-picture; CPU load reduced 80% (Toshiba)</li>
       <li>REST API cross-device architecture for Copa America global broadcasts; still in production with 1.25M subscribers in Australia &amp; Mexico</li>
-      <li>Client-side ad insertion pipeline (pre-roll &amp; mid-roll) with instrumented analytics; demonstrated $3M additional revenue/quarter (DISH Network)</li>
-      <li>Enterprise Wireless Access Point end-to-end call processing architecture; SS7 protocol ensuring inter-carrier hard hand-off from office to highway (Cisco)</li>
-      <li>Embedded pipeline: cloud EPG + recordings → mobile device display; m3u8-to-mp4 converter for offline playback; video seek/scrubbing — 2.5M subscribers (DISH)</li>
+      <li>Client-side ad insertion pipeline (pre-roll &amp; mid-roll) with instrumented analytics; demonstrated $3M additional revenue/quarter (Sling Media/DISH)</li>
     </ul>
   </div>
 
@@ -301,16 +323,16 @@
   <div class="panel" id="leadership">
     <h2>Leadership</h2>
     <ul>
-      <li>Global Forward Deployed Engineering Manager at Conviva — built and managed a team of staff/senior software engineers across the globe</li>
-      <li>Established quarterly OKRs for each team member ensuring consistent delivery; rewarded top performance with salary adjustments, spot/annual bonuses, and equity</li>
-      <li>Scaled team from a single product area to 8 product lines simultaneously, significantly boosting efficiency</li>
-      <li>Introduced post-sales requirements capture process; improved data quality 25% across 8 product areas — a critical KPI for customer success</li>
-      <li>Developed 6 technical playbooks and 50 application notes across 8 product areas; reduced customer onboarding time by 40%</li>
-      <li>Collaborated with 5 product managers, 6 project managers, 8 solution architects, 8 validation engineers, and ~200 developers for seamless global integrations</li>
+      <li>Lead 6 principal/staff engineers (core team) within a 36-person extended delivery organization at Conviva — hiring, career development, technical direction, and quality standards across all product lines on AWS and Google Cloud</li>
+      <li>Scaled engineering organization from 3 to 13 direct engineers across U.S., APAC, and LATAM; managed a $2.5M engineering budget and owned capacity planning, hiring, and organizational design as team scaled 3x</li>
+      <li>Instituted OKR-based goal setting, architecture review processes, and a culture of engineering excellence that improved delivery velocity and team ownership</li>
+      <li>Championed internal AI adoption — onboarded engineering teams to Claude Code, Cursor and Gemini; drove migration of legacy JavaScript codebases into agentic workflows</li>
+      <li>Worked with pre-sales teams, leading 150 training sessions with client developers worldwide on video, ad, and application quality of experience</li>
+      <li>Coordinated with 5 product managers, 8 project managers, and multiple engineering teams to deliver seamless integration experiences for top clients</li>
       <li>Personally trained ~200 developers across the globe; provided technical solutions for ~2,000 integration questions</li>
       <li>Fostered a culture of ownership and accountability in an ever-dynamic customer-facing integration engineering team</li>
-      <li>Previously led engineering teams at Intel Sports (2018 Winter Olympics VR), Dalet Flex (Copa America streaming), and Omni Spectrum Holdings</li>
-      <li>High-profile client integrations: SlingTV, Paramount/CBS, Televisa Univision, NFL, Disney, Warner Bros Discovery, CNN, MLL, Tnets, Philo</li>
+      <li>Previously led engineering teams at Samsung/Harman @ Intel Sports (2018 Winter Olympics VR), Brightcove/Ooyala (Copa America streaming), and Omni Spectrum Holdings</li>
+      <li>High-profile client integrations: SlingTV, Paramount/CBS, Televisa Univision, NFL, Disney, Warner Bros Discovery, CNN, MLL, Tnets, Philo, Salesforce, Wayfair, Herbalife</li>
     </ul>
   </div>
 
@@ -319,14 +341,14 @@
     <h2>Publications &amp; Certifications</h2>
     <ul>
       <li>Publication: National Communication Conference - India</li>
+      <li>Professional Development: LEAD Program, Stanford University (in progress)</li>
+      <li>Professional Development: AI/ML @ Berkeley</li>
+      <li>Bootcamp: JavaScript, React, React Native and Node.js</li>
       <li>Certification: Build with Claude Code — Anthropic</li>
       <li>Certification: Front End Web and Mobile Development Honor</li>
       <li>Certification: Back-End Development Full Stack — NodeJS, Express, MongoDB</li>
-      <li>6 technical playbooks covering 8 Conviva product areas for global customer integrations</li>
-      <li>50 application notes across 8 Conviva product areas; reduced customer onboarding time by 40%</li>
-      <li>40-page architecture document with end-to-end sequence diagrams for Dalet Flex video streaming platform</li>
-      <li>Technical interface specifications for CMS (Live/SVOD/TVOD/AVOD/Ads), DRMs, entitlement servers, and video players (Dalet Flex)</li>
-      <li>Training materials and technical solutions delivered to ~200 developers across the globe</li>
+      <li>6 technical playbooks and 50 application notes across 8 Conviva product areas for global customer integrations; reduced onboarding time 40–80%</li>
+      <li>MCP integration playbooks and specialized training delivered to Salesforce, Wayfair, Herbalife, Disney, and Paramount</li>
       <li>~2,000 developer integration questions answered through documented technical guidance</li>
     </ul>
   </div>
@@ -335,16 +357,16 @@
   <div class="panel" id="opensource">
     <h2>Open Source</h2>
     <ul>
-      <li>Integrated Conviva Agentic SDKs: C/C++, JavaScript, Java, Android, Python</li>
+      <li>Integrated Conviva Agentic SDKs: C/C++, JavaScript, Java, Android, React Native, Roku, Python</li>
+      <li>Built a Playwright-based distributed test automation framework generating production-level synthetic traffic — top Hackathon finalist, 2026</li>
       <li>Certified: Build with Claude Code (Anthropic)</li>
       <li>Applied HLS open standards for VR and mobile video streaming</li>
-      <li>Built m3u8-to-mp4 converter for offline mobile video playback (DISH)</li>
+      <li>Built m3u8-to-mp4 converter for offline mobile video playback (Sling Media/DISH)</li>
       <li>Designed cross-device REST API integrations for streaming platforms</li>
       <li>AWS cloud video transcoding pipeline for HLS delivery</li>
-      <li>Ad insertion frameworks: pre-roll and mid-roll at DISH Network</li>
-      <li>SS7 protocol implementation for enterprise wireless at Cisco</li>
+      <li>Ad insertion frameworks: pre-roll and mid-roll at Sling Media/DISH Network</li>
       <li>NodeJS/Express/MongoDB Full Stack certified developer</li>
-      <li>Passionate about Agentic AI and emerging technology ecosystems</li>
+      <li>Passionate about Agentic AI, MCP, and emerging technology ecosystems</li>
     </ul>
   </div>
 
@@ -352,16 +374,16 @@
   <div class="panel" id="mentoring">
     <h2>Mentoring</h2>
     <ul>
+      <li>Hire and develop strong engineers and future leaders; grew the Conviva engineering team from 3 to 13 direct engineers</li>
       <li>Personally trained ~200 developers across the globe on Conviva SDK integrations</li>
       <li>Provided technical solutions for ~2,000 developer integration questions worldwide</li>
-      <li>Developed 6 technical playbooks across 8 product areas to guide customer integrations</li>
-      <li>Created 50 application notes reducing customer onboarding time by 40%</li>
-      <li>Established quarterly OKRs for each team member ensuring consistent delivery and growth</li>
+      <li>Led 150 client training sessions worldwide on video, ad, and application quality of experience</li>
+      <li>Developed 6 technical playbooks and 50 application notes across 8 product areas to guide customer integrations</li>
+      <li>Established OKR-based goal setting for each team member, ensuring consistent delivery and growth</li>
       <li>Fostered a culture of ownership and accountability in the customer-facing integration engineering team</li>
-      <li>Rewarded top performance with salary adjustments, spot/annual bonuses, and equity</li>
-      <li>Built and grew engineering teams at Conviva, Intel Sports, Dalet Flex, and Omni Spectrum Holdings</li>
-      <li>Collaborated cross-functionally with 5 PMs, 6 PjMs, 8 SAs, 8 validation engineers, and ~200 developers</li>
-      <li>Scaled team from a single product area to 8 product lines, expanding team capacity and capability</li>
+      <li>Built and grew engineering teams at Conviva, Samsung/Harman @ Intel Sports, Brightcove/Ooyala, and Omni Spectrum Holdings</li>
+      <li>Coordinated with 5 product managers, 8 project managers, and cross-functional engineering teams</li>
+      <li>Onboarded engineering teams to Claude Code, Cursor and Gemini as part of internal AI adoption</li>
     </ul>
   </div>
 
@@ -374,11 +396,12 @@
       <div class="contact-item">📱 <strong>Phone</strong><br>(408) 569-2109</div>
       <div class="contact-item">📍 <strong>Location</strong><br>Cupertino, California, United States</div>
       <div class="contact-item">🌐 <strong>Languages</strong><br>English (Full Professional), Telugu (Full Professional)</div>
-      <div class="contact-item">🎓 <strong>Education</strong><br>IIT Madras MS (Research, Computer Engineering) &nbsp;·&nbsp; JNTU B.Tech &nbsp;·&nbsp; Stanford Lead Program</div>
+      <div class="contact-item">🎓 <strong>Education</strong><br>IIT Madras — M.S. Computer Engineering &nbsp;·&nbsp; JNT University — B.Tech Engineering &nbsp;·&nbsp; LEAD Program, Stanford (in progress) &nbsp;·&nbsp; AI/ML @ Berkeley</div>
       <div class="contact-item">🏆 <strong>Certifications</strong><br>Build with Claude Code &nbsp;·&nbsp; NodeJS/Express/MongoDB Full Stack &nbsp;·&nbsp; Front End Web &amp; Mobile Dev Honor</div>
       <div class="contact-item">📰 <strong>Publication</strong><br>National Communication Conference - India</div>
       <div class="contact-item">💡 <strong>Interests</strong><br>Agentic AI technologies, intelligent AI agents, context-aware backend infrastructure</div>
-      <div class="contact-item">🏢 <strong>Current Role</strong><br>Manager, Forward Deployed Integration Engineering at Conviva (2019–Present)</div>
+      <div class="contact-item">🏢 <strong>Current Role</strong><br>Manager, Forward Deployed AI Integration Engineering Team (Agents) at Conviva (Apr 2025–Present)</div>
+      <div class="contact-item">🇺🇸 <strong>Work Authorization</strong><br>US Citizen — no visa sponsorship required</div>
     </div>
   </div>
 
