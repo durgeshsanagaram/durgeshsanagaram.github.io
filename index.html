@@ -41,6 +41,15 @@
     header .header-text { flex: 1; min-width: 0; }
     header h1 { font-size: 22px; font-weight: 700; }
     header p  { font-size: 13px; color: var(--text-secondary); max-width: 680px; line-height: 1.6; margin-top: 6px; }
+    header .header-link {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent-light);
+      text-decoration: none;
+    }
+    header .header-link:hover { text-decoration: underline; }
     header .avatar {
       width: 76px;
       height: 76px;
@@ -177,6 +186,7 @@
   <div class="header-text">
     <h1>Durgesh Sanagaram</h1>
     <p>Senior Manager | Building Teams | Build with Claude | Embedded (GPU and CPU) | Web, Mobile and Agentic apps | Video, Ads and Data | Full Stack</p>
+    <a class="header-link" href="https://www.linkedin.com/in/durgeshsanagaram/?skipRedirect=true" target="_blank" rel="noopener">LinkedIn Profile</a>
   </div>
   <img class="avatar" src="assets/profile.jpg" alt="Durgesh Sanagaram" />
 </header>
